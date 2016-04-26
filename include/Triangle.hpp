@@ -8,7 +8,6 @@ protected :
 	Point p2;
 	Point p3;
 public :
-	Triangle(void);
 	Triangle(Point p1,Point p2,Point p3);
 	
 	~Triangle();

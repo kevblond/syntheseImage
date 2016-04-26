@@ -19,6 +19,7 @@ else               #en mode normal
   CFLAGS = -O2 -ansi
 endif
 
+#enlever commentaire quand lib graphique
 # assemblage des infos de lib. et inc.
 #lib =   $(libG3X)$(CCEXT)
 
@@ -28,10 +29,11 @@ src = src/
 #inc = -I./include $(incG3X)
 inc = -I.include/
 
-exec = geometry 
+exec = exeRay
 
-# Cylinder.cpp Objet.cpp Point.cpp Rectangle.cpp Vector.cpp geometry.cpp ParentPointVector.cpp Ray.cpp Sphere.cpp Triangle.cpp Parser.cpp
-SRC = Point.cpp Vector.cpp geometry.cpp ParentPointVector.cpp Ray.cpp
+
+#les fichier .cpp
+SRC = 
 
 OBJ = $(SRC:%.cpp=%.o)
 
@@ -46,6 +48,7 @@ all : $(exec) clean
 	
 $(exec): $(OBJ)
 		$(CC) -o $@ $(OBJ)	
+#prendre cette ligne quand lib graphique
 #$(exec): $(OBJ)
 #		$(CC) -o $@ $(OBJ) $(lib)			
 

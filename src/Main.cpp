@@ -1,24 +1,26 @@
-
+#include <iostream>
 
 #include "../include/main.hpp"
 
 int main(void){
 	Point a(1., 2., 3.);
     std::cout << "point a creer\n";
-    Point b(1., 2., 3.);
+    Point b(4., 5., 6.);
     std::cout << "point b creer\n";
-
-
-    if (a == b) {
-        std::cout << "a==b\n";
+    Point c(7., 8., 9.);
+    std::cout << "point c creer\n";
+    Point d(1., 2., 3.);
+    std::cout << "point d creer\n";
+    
+    
+    Triangle t(a,b,c);
+    if (a == d) {
+        std::cout << "a==d\n";
     }
     else {
-        std::cout << "a!=b\n";
+        std::cout << "a!=d\n";
     }
-    std::cout << "a p1: " << a.getP1() << "\n";
-    std::cout << "a p2: " << a.getP2() << "\n";
-    std::cout << "a p3: " << a.getP3() << "\n";
-
+    t.print();
 
 	return 0;
 }

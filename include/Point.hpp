@@ -7,6 +7,8 @@
 
 #define SQR(a) a*a
 
+#include <iostream>
+
 class Point {
     protected:
         float x;
@@ -20,6 +22,7 @@ class Point {
         bool operator==(const Point &p);
         bool operator!=(const Point &p);
         Point operator=(const Point &p);
+	void print();
         float getX() const;
         float getY() const;
         float getZ() const;

@@ -2,6 +2,8 @@
 #ifndef PROJECT_Triangle_HPP
 #define PROJECT_Triangle_HPP
 
+#include "Point.hpp"
+
 class Triangle {
 protected :
 	Point p1;
@@ -14,9 +16,10 @@ public :
 	bool operator==(const Triangle &p);
     bool operator!=(const Triangle &p);
     Triangle operator=(const Triangle &p);
-    float getP1() const;
-    float getP2() const;
-    float getP3() const;
+	void print();
+    Point getP1() const;
+    Point getP2() const;
+    Point getP3() const;
 };
 
 #endif

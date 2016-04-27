@@ -1,13 +1,13 @@
-
+#include <iostream>
 #include "../include/Triangle.hpp"
 
 Triangle::Triangle(Point p1,Point p2,Point p3){
-	this.p1=p1;
-	this.p2=p2;
-	this.p3=p3;
+	this->p1=p1;
+	this->p2=p2;
+	this->p3=p3;
 }
 
-~Triangle::Triangle(){
+Triangle::~Triangle(){
 
 }
 
@@ -27,15 +27,20 @@ Triangle Triangle::operator=(const Triangle &t) {
     return (*this);
 }
 
+void Triangle::print() {
+	p1.print();
+    p2.print();
+    p3.print();
+}
 
-float Point::getP1() const {
+Point Triangle::getP1() const {
     return p1;
 }
 
-float Point::getP2() const {
+Point Triangle::getP2() const {
     return p2;
 }
 
-float Point::getP3() const {
+Point Triangle::getP3() const {
     return p3;
 }

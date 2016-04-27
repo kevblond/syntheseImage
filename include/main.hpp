@@ -6,6 +6,7 @@
 #include <cmath>
 
 #include "Point.hpp"
-#include "Triangle.hpp"
+#include "PyramideTriangle.hpp"
+#include "Cube.hpp"
 
 #endif

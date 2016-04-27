@@ -5,7 +5,9 @@
 #ifndef PROJECT_VECTOR_HPP
 #define PROJECT_VECTOR_HPP
 
+#define SQR(a) a*a
 
+#include <cmath>
 #include <iostream>
 
 class Vector {
@@ -27,6 +29,8 @@ class Vector {
         float getX() const;
         float getY() const;
         float getZ() const;
+        float scalarProduct(const Vector &p);
+        float getNorme();
 };
 
 

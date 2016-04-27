@@ -36,6 +36,11 @@ Vector Vector::operator=(const Vector &p) {
     return (*this);
 }
 
+void Vector::print(){
+    std::cout << "x: " << x << "\n";
+    std::cout << "y: " << y << "\n";
+    std::cout << "z: " << z << "\n";
+}
 
 float Vector::getX() const {
     return x;
@@ -48,3 +53,12 @@ float Vector::getY() const {
 float Vector::getZ() const {
     return z;
 }
+
+float Vector::scalarProduct(const Vector &v) {
+    return this->x * v.x + this->y * v.y + this->z * v.z;
+}
+
+float Vector::getNorme() {
+    return sqrt(scalarProduct(*this));
+}
+

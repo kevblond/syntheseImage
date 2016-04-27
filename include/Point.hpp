@@ -26,7 +26,7 @@ class Point {
         float getX() const;
         float getY() const;
         float getZ() const;
-        int sqrDist(const Point &p);
+        float sqrDist(const Point &p);
 };
 
 

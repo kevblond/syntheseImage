@@ -46,9 +46,9 @@ float Point::getZ() const {
     return z;
 }
 
-int Point::sqrDist(const Point &p) {
-    int dx = p.x - this->x;
-    int dy = p.y - this->y;
+float Point::sqrDist(const Point &p) {
+    float dx = p.x - this->x;
+    float dy = p.y - this->y;
     return SQR(dx) + SQR(dy);
 }
 

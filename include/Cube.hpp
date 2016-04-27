@@ -10,8 +10,9 @@ protected :
 	Point p1;
 	Vector v1;
 	Vector v2;
+	Vector v3;
 public :
-	Cube(Point p1,Vector v1,Vector v2);
+	Cube(Point p1,Vector v1,Vector v2,Vector v3);
 	
 	~Cube();
 	bool operator==(const Cube &p);
@@ -21,6 +22,7 @@ public :
     Point getP1() const;
 	Vector getV1() const;
 	Vector getV2() const;
+	Vector getV3() const;
 };
 
 #endif

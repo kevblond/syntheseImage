@@ -33,7 +33,7 @@ exec = exeRay
 
 
 #les fichier .cpp
-SRC = 
+SRC = Point.cpp Triangle.cpp Main.cpp
 
 OBJ = $(SRC:%.cpp=%.o)
 

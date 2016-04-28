@@ -1,36 +1,51 @@
-#include <iostream>
-#include <string.h>
+
 
 #include "../include/main.hpp"
 
 
-void niveau1(char[] nomFichier, char[] nomImage){
-	ReadFile::read(nomFichier);
+void niveau1(std::string nomFichier, std::string nomImage){
+	read(nomFichier);
 }
-void niveau2(char[] nomFichier, char[] nomImage){
-	ReadFile::read(nomFichier);
+/*
+void niveau2(char* nomFichier, char* nomImage){
+	read(nomFichier);
 }
-void niveau3(char[] nomFichier, char[] nomImage){
-	ReadFile::read(nomFichier);
+void niveau3(char* nomFichier, char* nomImage){
+	read(nomFichier);
 }
+*/
 
-int main(int argc, char* argv[][]){
-	if(strcmp(argv[1],"-n")!=0 || strcmp(argv[3],"-i")!=0 || strcmp(argv[5],"-o")!=0 ){
+int main(int argc, char* argv[]){
+    std::vector<std::string> allArgs(argv, argv + argc);
+    if (argc != 7) {
+        std::cout << "wrong argument, type : ./exe -n 1 -i fichier -o image.ppm\n";
+        return 0;
+    }
+	if(allArgs[1].compare("-n") !=0
+	    || allArgs[3].compare("-i")!=0
+	    || allArgs[5].compare("-o")!=0 ){
 		std::cout << "wrong argument, type : ./exe -n 1 -i fichier -o image.ppm\n";
+		return 0;
 	}
-	switch(atoi(argv[2]){
+    int niveau = atoi(allArgs[2].c_str());
+    std::string nomFichier = allArgs[4];
+    std::string nomImage = allArgs[6];
+	switch(niveau){
 	case 1:
-		niveau1(argv[4],argv[5]);
+		niveau1(nomFichier, nomImage);
 		break;
-	case 2:
-		niveau2(argv[4],argv[5]);
+	/*
+    case 2:
+		niveau2(nomFichier,argv[5]);
 		break;
 	case 3:
-		niveau3(argv[4],argv[5]);
+		niveau3(nomFichier,argv[5]);
 		break;
+    */
 	default:
 		std::cout << "wrong argument level : 1, 2 or 3\n";
 	}
+	/*
 	Point a(1., 2., 3.);
     std::cout << "point a creer\n";
     Point b(4., 5., 6.);
@@ -48,5 +63,6 @@ int main(int argc, char* argv[][]){
     PyramideTriangle t(a,b,c,d);
     t.print();
     rectangle.print();
+    */
 	return 0;
 }

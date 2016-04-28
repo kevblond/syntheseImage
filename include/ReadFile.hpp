@@ -4,9 +4,6 @@
 #include <fstream>
 #include <string>
 
-class ReadFile {
-public :
-	read(char[] nomFichier);
-};
+	void read(std::string nomFichier);
 
 #endif

@@ -7,10 +7,16 @@ void read(std::string nomFichier) {
 	if(fichier){
 		
 		while(fichier.eof() != 1) {
-		    std::string type, bla, bli, sep;
-			fichier >> type >> bla >> bli;
-			cout << type << bla << bli << endl;
-			std::cout << fichier.eof() << endl;
+		    std::string type, x,y,z,width,lenght,height;
+			fichier >> type;
+			if(strcmp(type,"Cube")==0){
+			}
+			else if(strcmp(type,"PyramideTriangle")==0){
+			
+			}
+			else if(strcmp(type,"Point")==0){
+			
+			}
 		}
 		fichier.close();
 	}

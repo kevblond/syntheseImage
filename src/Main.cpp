@@ -4,7 +4,33 @@
 
 
 void niveau1(std::string nomFichier, std::string nomImage){
-	read(nomFichier);
+	//read(nomFichier);
+	int nbCube=0;
+	Cube[] cube;
+	ifstream fichier(nomFichier.c_str(),ios::in);
+	if(fichier){
+		while(fichier.eof() != 1) {
+		    std::string type;
+			float x,y,z;
+			int width,lenght,height;
+			fichier >> type;
+			if(strcmp(type,"Cube")==0){
+				fichier>>x>>y>>z>>width>>lenght>>height;
+				Cube[nbCube]=Cube(Point(x,y,z),width,lenght,height);
+				nbCube++;
+			}
+			else if(strcmp(type,"PyramideTriangle")==0){
+			
+			}
+			else if(strcmp(type,"Point")==0){
+			
+			}
+		}
+		fichier.close();
+	}
+	else{
+		std::cout << "cannot open file" << nomFichier << endl;
+	}
 }
 /*
 void niveau2(char* nomFichier, char* nomImage){

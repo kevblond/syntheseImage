@@ -13,7 +13,7 @@ protected :
 	Vector v3;
 public :
 	Cube(Point p1,Vector v1,Vector v2,Vector v3);
-	
+	Cube(Point p1,int width,int height, int hight);
 	~Cube();
 	bool operator==(const Cube &p);
     bool operator!=(const Cube &p);

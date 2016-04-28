@@ -1,8 +1,36 @@
 #include <iostream>
+#include <string.h>
 
 #include "../include/main.hpp"
 
-int main(void){
+
+void niveau1(char[] nomFichier, char[] nomImage){
+	ReadFile::read(nomFichier);
+}
+void niveau2(char[] nomFichier, char[] nomImage){
+	ReadFile::read(nomFichier);
+}
+void niveau3(char[] nomFichier, char[] nomImage){
+	ReadFile::read(nomFichier);
+}
+
+int main(int argc, char* argv[][]){
+	if(strcmp(argv[1],"-n")!=0 || strcmp(argv[3],"-i")!=0 || strcmp(argv[5],"-o")!=0 ){
+		std::cout << "wrong argument, type : ./exe -n 1 -i fichier -o image.ppm\n";
+	}
+	switch(atoi(argv[2]){
+	case 1:
+		niveau1(argv[4],argv[5]);
+		break;
+	case 2:
+		niveau2(argv[4],argv[5]);
+		break;
+	case 3:
+		niveau3(argv[4],argv[5]);
+		break;
+	default:
+		std::cout << "wrong argument level : 1, 2 or 3\n";
+	}
 	Point a(1., 2., 3.);
     std::cout << "point a creer\n";
     Point b(4., 5., 6.);

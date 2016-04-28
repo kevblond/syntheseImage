@@ -2,11 +2,11 @@
 
 #include "../include/main.hpp"
 
+using namespace std;
 
 void niveau1(std::string nomFichier, std::string nomImage){
 	//read(nomFichier);
 	int nbCube=0;
-	Cube[] cube;
 	ifstream fichier(nomFichier.c_str(),ios::in);
 	if(fichier){
 		while(fichier.eof() != 1) {
@@ -14,15 +14,16 @@ void niveau1(std::string nomFichier, std::string nomImage){
 			float x,y,z;
 			int width,lenght,height;
 			fichier >> type;
-			if(strcmp(type,"Cube")==0){
+			if(type.compare("Cube")==0){
 				fichier>>x>>y>>z>>width>>lenght>>height;
-				Cube[nbCube]=Cube(Point(x,y,z),width,lenght,height);
+				Cube cube(Point(x,y,z),width,lenght,height);
 				nbCube++;
+				cube.print();
 			}
-			else if(strcmp(type,"PyramideTriangle")==0){
+			else if(type.compare("PyramideTriangle")==0){
 			
 			}
-			else if(strcmp(type,"Point")==0){
+			else if(type.compare("Point")==0){
 			
 			}
 		}

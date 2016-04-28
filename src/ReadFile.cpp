@@ -1,8 +1,10 @@
 #include "../include/ReadFile.hpp"
-
+#include <cstdlib>
+#include <cstring>
 using namespace std;
 
 void read(std::string nomFichier) {
+/*	
 	ifstream fichier(nomFichier.c_str(),ios::in);
 	if(fichier){
 		
@@ -23,4 +25,5 @@ void read(std::string nomFichier) {
 	else{
 		std::cout << "cannot open file" << nomFichier << endl;
 	}
+*/
 }

@@ -7,6 +7,7 @@ using namespace std;
 void niveau1(std::string nomFichier, std::string nomImage){
 	//read(nomFichier);
 	int nbCube=0;
+	Cube c();
 	ifstream fichier(nomFichier.c_str(),ios::in);
 	if(fichier){
 		while(fichier.eof() != 1) {
@@ -16,7 +17,7 @@ void niveau1(std::string nomFichier, std::string nomImage){
 			fichier >> type;
 			if(type.compare("Cube")==0){
 				fichier>>x>>y>>z>>width>>lenght>>height;
-				Cube cube(Point(x,y,z),width,lenght,height);
+				c=Cube(Point(x,y,z),width,lenght,height);
 				nbCube++;
 				cube.print();
 			}

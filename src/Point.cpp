@@ -29,9 +29,7 @@ Point Point::operator=(const Point &p) {
 }
 
 void Point::print(){
-    std::cout << "x: " << x << "\n";
-    std::cout << "y: " << y << "\n";
-    std::cout << "z: " << z << "\n";
+	std::cout << "Point: x: " << x << "; y: " << y << "; z: " << z << std::endl;
 }
 
 float Point::getX() const {

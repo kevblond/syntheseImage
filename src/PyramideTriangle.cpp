@@ -37,9 +37,10 @@ PyramideTriangle PyramideTriangle::operator=(const PyramideTriangle &t) {
 }
 
 void PyramideTriangle::print() {
+	std::cout << "PyramideTriangle : " << std::endl;
 	p1.print();
-    p2.print();
-    p3.print();
+	p2.print();
+    	p3.print();
 	p4.print();
 }
 

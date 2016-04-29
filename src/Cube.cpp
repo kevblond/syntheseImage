@@ -42,6 +42,7 @@ Cube Cube::operator=(const Cube &c) {
 }
 
 void Cube::print() {
+	std::cout << "Cube : " << std::endl;
 	p1.print();
     v1.print();
 	v2.print();

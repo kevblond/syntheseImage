@@ -37,9 +37,7 @@ Vector Vector::operator=(const Vector &p) {
 }
 
 void Vector::print(){
-    std::cout << "x: " << x << "\n";
-    std::cout << "y: " << y << "\n";
-    std::cout << "z: " << z << "\n";
+	std::cout << "Vector: x: " << x << "; y: " << y << "; z: " << z << std::endl;
 }
 
 float Vector::getX() const {

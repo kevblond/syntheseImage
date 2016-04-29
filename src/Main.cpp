@@ -1,14 +1,15 @@
 
 
-#include "../include/main.hpp"
+#include "../include/Main.hpp"
 
 using namespace std;
 
 void niveau1(std::string nomFichier, std::string nomImage){
 	//read(nomFichier);
-	int nbCube=0, nbPyramide = 0;
+	int nbCube=0, nbPyramide = 0, nbPoints = 0;
 	Cube c;
 	PyramideTriangle t;
+	Point p;
 	ifstream fichier(nomFichier.c_str(),ios::in);
 	if(fichier){
 		while(fichier.eof() != 1) {
@@ -33,7 +34,10 @@ void niveau1(std::string nomFichier, std::string nomImage){
 			    t.print();
 			}
 			else if(type.compare("Point")==0){
-			
+			    fichier >> x >> y >> z;
+			    nbPoints++;
+			    p = Point(x, y, z);
+			    p.print();
 			}
 		}
 		fichier.close();

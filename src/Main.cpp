@@ -91,5 +91,9 @@ int main(int argc, char* argv[]){
     t.print();
     rectangle.print();
     */
+    cout << "Test camera" << endl;
+    Camera c(Point(10.,10.,10.), 0.25*PI, +0.25*PI, 6.);
+    c.print();
+    cout << "Fin test camera" << endl;
 	return 0;
 }

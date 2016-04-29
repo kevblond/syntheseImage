@@ -2,6 +2,7 @@
 #ifndef PROJECT_Cube_HPP
 #define PROJECT_Cube_HPP
 
+#include <iostream>
 #include "Point.hpp"
 #include "Vector.hpp"
 

@@ -1,4 +1,3 @@
-#include <iostream>
 #include "../include/Cube.hpp"
 
 Cube::Cube(Point p1,Vector v1,Vector v2,Vector v3){

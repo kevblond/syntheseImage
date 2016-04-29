@@ -1,4 +1,3 @@
-#include <iostream>
 #include "../include/PyramideTriangle.hpp"
 
 PyramideTriangle::PyramideTriangle(Point p1,Point p2,Point p3,Point p4){

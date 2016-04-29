@@ -2,6 +2,7 @@
 #ifndef PROJECT_PyramideTriangle_HPP
 #define PROJECT_PyramideTriangle_HPP
 
+#include <iostream>
 #include "Point.hpp"
 
 class PyramideTriangle {

@@ -6,8 +6,9 @@ using namespace std;
 
 void niveau1(std::string nomFichier, std::string nomImage){
 	//read(nomFichier);
-	int nbCube=0;
-	Cube c();
+	int nbCube=0, nbPyramide = 0;
+	Cube c;
+	PyramideTriangle t;
 	ifstream fichier(nomFichier.c_str(),ios::in);
 	if(fichier){
 		while(fichier.eof() != 1) {
@@ -19,10 +20,17 @@ void niveau1(std::string nomFichier, std::string nomImage){
 				fichier>>x>>y>>z>>width>>lenght>>height;
 				c=Cube(Point(x,y,z),width,lenght,height);
 				nbCube++;
-				cube.print();
+				c.print();
 			}
 			else if(type.compare("PyramideTriangle")==0){
-			
+			    Point points[4];
+			    for (int i = 0; i < 4; ++i) {
+		    	    fichier >> x >> y >> z;
+		    	    points[i] = Point(x, y, z);
+			    }
+			    nbPyramide++;
+			    t = PyramideTriangle(points[0], points[1], points[2], points[3]);
+			    t.print();
 			}
 			else if(type.compare("Point")==0){
 			

@@ -13,7 +13,7 @@ protected :
 	Point p4;
 public :
 	PyramideTriangle(Point p1,Point p2,Point p3,Point p4);
-	
+	PyramideTriangle(void);
 	~PyramideTriangle();
 	bool operator==(const PyramideTriangle &p);
     bool operator!=(const PyramideTriangle &p);

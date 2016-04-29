@@ -15,10 +15,10 @@ Cube::Cube(Point p1,int width,int height, int hight){
 	this->v3 = Vector(0.,0.,hight);
 }
 Cube::Cube(void){
-	this->p1 = Point(0.,0.,0.);
-	this->v1 = Vector(1.,0.,0.);
-	this->v2 = Vector(0.,1.,0.);
-	this->v3 = Vector(0.,0.,1.);
+	this->p1 = Point();
+	this->v1 = Vector();
+	this->v2 = Vector();
+	this->v3 = Vector();
 }
 Cube::~Cube(){
 

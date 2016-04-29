@@ -7,6 +7,14 @@ PyramideTriangle::PyramideTriangle(Point p1,Point p2,Point p3,Point p4){
 	this->p4=p4;
 }
 
+PyramideTriangle::PyramideTriangle(void){
+	this->p1 = Point();
+    this->p2 = Point();
+    this->p3 = Point();
+    this->p4 = Point();
+}
+
+
 PyramideTriangle::~PyramideTriangle(){
 
 }

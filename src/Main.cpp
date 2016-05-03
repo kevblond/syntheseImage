@@ -56,7 +56,7 @@ void niveau3(char* nomFichier, char* nomImage){
 */
 
 int main(int argc, char* argv[]){
-    std::vector<std::string> allArgs(argv, argv + argc);
+    /*std::vector<std::string> allArgs(argv, argv + argc);
     if (argc != 7) {
         std::cout << "wrong argument, type : ./exe -n 1 -i fichier -o image.ppm\n";
         return 0;
@@ -85,10 +85,11 @@ int main(int argc, char* argv[]){
 	default:
 		std::cout << "wrong argument level : 1, 2 or 3\n";
 	}
-	/*
+	//test object
 	Point a(1., 2., 3.);
     std::cout << "point a creer\n";
-    Point b(4., 5., 6.);
+	a.print();
+    /*Point b(4., 5., 6.);
     std::cout << "point b creer\n";
     Point c(7., 8., 9.);
     std::cout << "point c creer\n";
@@ -104,9 +105,9 @@ int main(int argc, char* argv[]){
     t.print();
     rectangle.print();
     */
-    cout << "Test camera" << endl;
+    /*cout << "Test camera" << endl;
     Camera c(Point(10.,10.,10.), 0.25*PI, +0.25*PI, 6.);
     c.print();
-    cout << "Fin test camera" << endl;
+    cout << "Fin test camera" << endl;*/
 	return 0;
 }

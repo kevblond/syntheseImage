@@ -9,7 +9,7 @@
 
 #include <iostream>
 
-class Point {
+class Point public Object{
     protected:
         float x;
         float y;
@@ -22,7 +22,7 @@ class Point {
         bool operator==(const Point &p);
         bool operator!=(const Point &p);
         Point operator=(const Point &p);
-	void print();
+		void print();
         float getX() const;
         float getY() const;
         float getZ() const;

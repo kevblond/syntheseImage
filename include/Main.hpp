@@ -17,5 +17,6 @@
 #include "Cube.hpp"
 #include "ReadFile.hpp"
 #include "Camera.hpp"
+#include "Object.hpp"
 
 #endif

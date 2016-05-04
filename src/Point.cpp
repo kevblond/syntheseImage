@@ -1,5 +1,5 @@
 //
-// Created by Narex on 05/04/2016.
+// Created by [...] on 05/04/2016.
 //
 
 #include "../include/Point.hpp"

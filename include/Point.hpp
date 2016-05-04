@@ -8,8 +8,9 @@
 #define SQR(a) a*a
 
 #include <iostream>
+#include "Object.hpp"
 
-class Point public Object{
+class Point : public Object {
     protected:
         float x;
         float y;
@@ -22,7 +23,7 @@ class Point public Object{
         bool operator==(const Point &p);
         bool operator!=(const Point &p);
         Point operator=(const Point &p);
-		void print();
+		virtual void print();
         float getX() const;
         float getY() const;
         float getZ() const;

@@ -11,19 +11,19 @@ void niveau1(std::string nomFichier, std::string nomImage){
 	PyramideTriangle t;
 	Point p;
 	ifstream fichier(nomFichier.c_str(),ios::in);
-	if(fichier){
-		while(fichier.eof() != 1) {
+	if (fichier) {
+		while (fichier.eof() != 1) {
 		    std::string type;
 			float x,y,z;
-			int width,lenght,height;
+			int width, lenght, height;
 			fichier >> type;
-			if(type.compare("Cube")==0){
-				fichier>>x>>y>>z>>width>>lenght>>height;
-				c=Cube(Point(x,y,z),width,lenght,height);
+			if (type.compare("Cube") == 0) {
+				fichier >> x >> y >> z >> width >> lenght >> height;
+				c = Cube(Point(x, y, z), width, lenght, height);
 				nbCube++;
 				c.print();
 			}
-			else if(type.compare("PyramideTriangle")==0){
+			else if (type.compare("PyramideTriangle") == 0) {
 			    Point points[4];
 			    for (int i = 0; i < 4; ++i) {
 		    	    fichier >> x >> y >> z;
@@ -33,7 +33,7 @@ void niveau1(std::string nomFichier, std::string nomImage){
 			    t = PyramideTriangle(points[0], points[1], points[2], points[3]);
 			    t.print();
 			}
-			else if(type.compare("Point")==0){
+			else if (type.compare("Point") == 0) {
 			    fichier >> x >> y >> z;
 			    nbPoints++;
 			    p = Point(x, y, z);
@@ -56,7 +56,8 @@ void niveau3(char* nomFichier, char* nomImage){
 */
 
 int main(int argc, char* argv[]){
-    /*std::vector<std::string> allArgs(argv, argv + argc);
+    /*
+    std::vector<std::string> allArgs(argv, argv + argc);
     if (argc != 7) {
         std::cout << "wrong argument, type : ./exe -n 1 -i fichier -o image.ppm\n";
         return 0;
@@ -74,20 +75,19 @@ int main(int argc, char* argv[]){
 	case 1:
 		niveau1(nomFichier, nomImage);
 		break;
-	/*
     case 2:
 		niveau2(nomFichier,argv[5]);
 		break;
 	case 3:
 		niveau3(nomFichier,argv[5]);
 		break;
-    */
 	default:
 		std::cout << "wrong argument level : 1, 2 or 3\n";
 	}
+	*/
 	//test object
 	Point a(1., 2., 3.);
-    std::cout << "point a creer\n";
+    std::cout << "point a cree\n";
 	a.print();
     /*Point b(4., 5., 6.);
     std::cout << "point b creer\n";

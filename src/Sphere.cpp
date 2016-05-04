@@ -28,7 +28,7 @@ Sphere Sphere::operator=(const Sphere &s) {
 }
 
 void Sphere::print() {
-	std::cout << "Sphere: C: ";
+	std::cout << "Sphere: Center: ";
     center.print();
-    std::cout << "; r: " << radius << endl;
+    std::cout << "Sphere: r: " << radius << endl;
 }

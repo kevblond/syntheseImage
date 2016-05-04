@@ -12,11 +12,12 @@
 #include <cstring>
 #include <vector>
 
+#include "Object.hpp"
 #include "Point.hpp"
 #include "PyramideTriangle.hpp"
 #include "Cube.hpp"
 #include "ReadFile.hpp"
 #include "Camera.hpp"
-#include "Object.hpp"
+#include "Sphere.hpp"
 
 #endif

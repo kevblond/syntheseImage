@@ -105,6 +105,11 @@ int main(int argc, char* argv[]){
     t.print();
     rectangle.print();
     */
+    
+    /* test sphere */
+    Sphere s;
+    s.print();
+    
     /*cout << "Test camera" << endl;
     Camera c(Point(10.,10.,10.), 0.25*PI, +0.25*PI, 6.);
     c.print();

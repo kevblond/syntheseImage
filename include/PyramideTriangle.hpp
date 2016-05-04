@@ -3,9 +3,10 @@
 #define PROJECT_PyramideTriangle_HPP
 
 #include <iostream>
+#include "Object.hpp"
 #include "Point.hpp"
 
-class PyramideTriangle {
+class PyramideTriangle : public Object {
 protected :
 	Point p1;
 	Point p2;

@@ -3,10 +3,11 @@
 #define PROJECT_Cube_HPP
 
 #include <iostream>
+#include "Object.hpp"
 #include "Point.hpp"
 #include "Vector.hpp"
 
-class Cube {
+class Cube : public Object {
 protected :
 	Point p1;
 	Vector v1;

@@ -18,8 +18,8 @@ public :
 	~PyramideTriangle();
 	bool operator==(const PyramideTriangle &p);
     bool operator!=(const PyramideTriangle &p);
-    PyramideTriangle operator=(const PyramideTriangle &p);
-	void print();
+    PyramideTriangle &operator=(const PyramideTriangle &p);
+	virtual void print(void) const;
     Point getP1() const;
     Point getP2() const;
     Point getP3() const;

@@ -20,8 +20,8 @@ public :
 	~Cube();
 	bool operator==(const Cube &p);
     bool operator!=(const Cube &p);
-    Cube operator=(const Cube &p);
-	void print();
+    Cube &operator=(const Cube &p);
+	virtual void print(void) const;
     Point getP1() const;
 	Vector getV1() const;
 	Vector getV2() const;

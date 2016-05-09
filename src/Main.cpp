@@ -4,12 +4,14 @@
 
 using namespace std;
 
-void niveau1(std::string nomFichier, std::string nomImage){
+void parse(std::string nomFichier, std::string nomImage, std::list<Object *> *objects){
 	//read(nomFichier);
 	int nbCube=0, nbPyramide = 0, nbPoints = 0;
+	
 	Cube c;
 	PyramideTriangle t;
-	Point p;
+	Object *o;
+	
 	ifstream fichier(nomFichier.c_str(),ios::in);
 	if (fichier) {
 		while (fichier.eof() != 1) {
@@ -21,7 +23,7 @@ void niveau1(std::string nomFichier, std::string nomImage){
 				fichier >> x >> y >> z >> width >> lenght >> height;
 				c = Cube(Point(x, y, z), width, lenght, height);
 				nbCube++;
-				c.print();
+				objects->push_back(&c);
 			}
 			else if (type.compare("PyramideTriangle") == 0) {
 			    Point points[4];
@@ -31,13 +33,7 @@ void niveau1(std::string nomFichier, std::string nomImage){
 			    }
 			    nbPyramide++;
 			    t = PyramideTriangle(points[0], points[1], points[2], points[3]);
-			    t.print();
-			}
-			else if (type.compare("Point") == 0) {
-			    fichier >> x >> y >> z;
-			    nbPoints++;
-			    p = Point(x, y, z);
-			    p.print();
+			    objects->push_back(&t);
 			}
 		}
 		fichier.close();
@@ -56,7 +52,7 @@ void niveau3(char* nomFichier, char* nomImage){
 */
 
 int main(int argc, char* argv[]){
-    /*
+    
     std::vector<std::string> allArgs(argv, argv + argc);
     if (argc != 7) {
         std::cout << "wrong argument, type : ./exe -n 1 -i fichier -o image.ppm\n";
@@ -71,44 +67,30 @@ int main(int argc, char* argv[]){
     int niveau = atoi(allArgs[2].c_str());
     std::string nomFichier = allArgs[4];
     std::string nomImage = allArgs[6];
+	std::list<Object *> objects;
 	switch(niveau){
 	case 1:
-		niveau1(nomFichier, nomImage);
+		parse(nomFichier, nomImage, &objects);
+		cout << "Fin niveau 1" << endl;
 		break;
+    /*
     case 2:
 		niveau2(nomFichier,argv[5]);
 		break;
 	case 3:
 		niveau3(nomFichier,argv[5]);
 		break;
+	*/
 	default:
 		std::cout << "wrong argument level : 1, 2 or 3\n";
 	}
+	
+	/*
+	std::list<Object>::iterator lit(objects.begin()), lend(objects.end());
+	for (; lit != lend; ++lit)
+	    lit->print();
+	cout << endl;
 	*/
-	//test object
-	Point a(1., 2., 3.);
-    std::cout << "point a cree\n";
-	a.print();
-    /*Point b(4., 5., 6.);
-    std::cout << "point b creer\n";
-    Point c(7., 8., 9.);
-    std::cout << "point c creer\n";
-    Point d(10., 11., 13.);
-    std::cout << "point d creer\n";
-    
-    Vector v1(6., 0., 0.);
-    Vector v2(0., 8., 0.);
-    Vector v3(0., 0., 10.);
-
-    Cube rectangle(a, v1, v2, v3);
-    PyramideTriangle t(a,b,c,d);
-    t.print();
-    rectangle.print();
-    */
-    
-    /* test sphere */
-    Sphere s;
-    s.print();
     
     /*cout << "Test camera" << endl;
     Camera c(Point(10.,10.,10.), 0.25*PI, +0.25*PI, 6.);

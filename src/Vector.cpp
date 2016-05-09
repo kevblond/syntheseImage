@@ -36,7 +36,7 @@ Vector Vector::operator=(const Vector &p) {
     return (*this);
 }
 
-void Vector::print(){
+void Vector::print(void) const {
 	std::cout << "Vector: x: " << x << "; y: " << y << "; z: " << z << std::endl;
 }
 

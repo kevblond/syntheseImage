@@ -33,7 +33,7 @@ bool Cube::operator!=(const Cube &c) {
     return this->v1.getNorme() != v1.getNorme() || this->v2.getNorme() != v2.getNorme() || this->v3.getNorme() != v3.getNorme();
 }
 
-Cube Cube::operator=(const Cube &c) {
+Cube &Cube::operator=(const Cube &c) {
     this->p1 = c.p1;
 	this->v1 = c.v1;
 	this->v2 = c.v2;
@@ -41,7 +41,7 @@ Cube Cube::operator=(const Cube &c) {
     return (*this);
 }
 
-void Cube::print() {
+void Cube::print(void) const {
 	std::cout << "Cube : " << std::endl;
 	p1.print();
     v1.print();

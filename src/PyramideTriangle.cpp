@@ -28,7 +28,7 @@ bool PyramideTriangle::operator!=(const PyramideTriangle &t) {
     return this->p1 != t.p1 || this->p2 != t.p2 || this->p3 != t.p3 || this->p4 != t.p4;
 }
 
-PyramideTriangle PyramideTriangle::operator=(const PyramideTriangle &t) {
+PyramideTriangle &PyramideTriangle::operator=(const PyramideTriangle &t) {
     this->p1 = t.p1;
     this->p2 = t.p2;
     this->p3 = t.p3;
@@ -36,7 +36,7 @@ PyramideTriangle PyramideTriangle::operator=(const PyramideTriangle &t) {
     return (*this);
 }
 
-void PyramideTriangle::print() {
+void PyramideTriangle::print(void) const {
 	std::cout << "PyramideTriangle : " << std::endl;
 	p1.print();
 	p2.print();

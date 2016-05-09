@@ -11,6 +11,8 @@
 #include <cstdlib>
 #include <cstring>
 #include <vector>
+#include <list>
+#include <sstream>
 
 #include "Object.hpp"
 #include "Point.hpp"

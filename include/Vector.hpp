@@ -25,7 +25,7 @@ class Vector {
         Vector operator=(const Vector &p);
 	    Vector operator+(const Vector &p);
         Vector operator-(const Vector &p);
-	    void print();
+	    void print(void) const;
         float getX() const;
         float getY() const;
         float getZ() const;

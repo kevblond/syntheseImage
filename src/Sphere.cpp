@@ -21,13 +21,13 @@ bool Sphere::operator!=(const Sphere &s) {
     return this->center != s.center || this->radius != s.radius;
 }
 
-Sphere Sphere::operator=(const Sphere &s) {
+Sphere &Sphere::operator=(const Sphere &s) {
     this->center = s.center;
     this->radius = s.radius;
     return (*this);
 }
 
-void Sphere::print() {
+void Sphere::print(void) const {
 	std::cout << "Sphere: Center: ";
     center.print();
     std::cout << "Sphere: r: " << radius << endl;

@@ -21,14 +21,14 @@ bool Point::operator!=(const Point &p) {
     return this->x != p.x || this->y != p.y || this->z != p.z;
 }
 
-Point Point::operator=(const Point &p) {
+Point &Point::operator=(const Point &p) {
     this->x = p.x;
     this->y = p.y;
     this->z = p.z;
     return (*this);
 }
 
-void Point::print(){
+void Point::print(void) const {
 	std::cout << "Point: x: " << x << "; y: " << y << "; z: " << z << std::endl;
 }
 

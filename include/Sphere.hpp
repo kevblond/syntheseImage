@@ -21,8 +21,8 @@ class Sphere : public Object {
         ~Sphere();
         bool operator==(const Sphere &s);
         bool operator!=(const Sphere &s);
-        Sphere operator=(const Sphere &s);
-		virtual void print();
+        Sphere &operator=(const Sphere &s);
+		virtual void print(void) const;
 };
 
 

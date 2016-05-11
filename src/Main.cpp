@@ -4,7 +4,7 @@
 
 using namespace std;
 
-void parse(std::string nomFichier, std::string nomImage, std::vector<Object> &objects){
+void parse(std::string nomFichier, std::string nomImage, std::vector<Object*> &objects){
 	//read(nomFichier);
 	int nbCube=0, nbPyramide = 0, nbPoints = 0;
 	

@@ -11,12 +11,13 @@ void parse(std::string nomFichier, std::string nomImage, std::vector<Object*> &o
 		while (fichier.eof() != 1) {
 		    std::string type;
 			float x,y,z;
+			float r,g,b;
 			double u,v,w;
 			int width, lenght, height;
 			fichier >> type;
 			if (type.compare("Cube") == 0) {
-				fichier >> x >> y >> z >> width >> lenght >> height;
-				objects.push_back(new Cube(Point(x, y, z), width, lenght, height));
+				fichier >> x >> y >> z >> width >> lenght >> height >> r >> g >> b;
+				objects.push_back(new Cube(Point(x, y, z), width, lenght, height,Color(r,g,b)));
 			}
 			else if (type.compare("PyramideTriangle") == 0) {
 			    Point points[4];
@@ -24,7 +25,8 @@ void parse(std::string nomFichier, std::string nomImage, std::vector<Object*> &o
 		    	    fichier >> x >> y >> z;
 		    	    points[i] = Point(x, y, z);
 			    }
-			    objects.push_back(new PyramideTriangle(points[0], points[1], points[2], points[3]));
+				fichier >> r >> g >> b;
+			    objects.push_back(new PyramideTriangle(points[0], points[1], points[2], points[3],Color(r,g,b)));
 			}
 			else if (type.compare("Camera") == 0) {
 				fichier >> x >> y >> z >> u >> v >> w;

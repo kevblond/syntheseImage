@@ -21,5 +21,6 @@
 #include "ReadFile.hpp"
 #include "Camera.hpp"
 #include "Sphere.hpp"
+#include "Color.hpp"
 
 #endif

@@ -7,7 +7,14 @@
 class Color{
   public:
 	Color();
-	Color(char color);
+	Color(float R, float G, float B);
 	~Color();
+	float getR() const;
+	float getG() const;
+	float getB() const;
+  private:
+	float R;
+	float G;
+	float B;
 };
 #endif

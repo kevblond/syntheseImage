@@ -5,12 +5,6 @@
 using namespace std;
 
 void parse(std::string nomFichier, std::string nomImage, std::vector<Object*> &objects){
-	//read(nomFichier);
-	int nbCube=0, nbPyramide = 0, nbPoints = 0;
-	
-	Cube c;
-	PyramideTriangle t;
-	Object *o;
 	
 	ifstream fichier(nomFichier.c_str(),ios::in);
 	if (fichier) {
@@ -21,7 +15,6 @@ void parse(std::string nomFichier, std::string nomImage, std::vector<Object*> &o
 			fichier >> type;
 			if (type.compare("Cube") == 0) {
 				fichier >> x >> y >> z >> width >> lenght >> height;
-				nbCube++;
 				objects.push_back(new Cube(Point(x, y, z), width, lenght, height));
 			}
 			else if (type.compare("PyramideTriangle") == 0) {
@@ -30,7 +23,6 @@ void parse(std::string nomFichier, std::string nomImage, std::vector<Object*> &o
 		    	    fichier >> x >> y >> z;
 		    	    points[i] = Point(x, y, z);
 			    }
-			    nbPyramide++;
 			    objects.push_back(new PyramideTriangle(points[0], points[1], points[2], points[3]));
 			}
 		}
@@ -83,12 +75,6 @@ int main(int argc, char* argv[]){
 		std::cout << "wrong argument level : 1, 2 or 3\n";
 	}
 	
-	/*
-	std::list<Object>::iterator lit(objects.begin()), lend(objects.end());
-	for (; lit != lend; ++lit)
-	    lit->print();
-	cout << endl;
-	*/
 	for(int i(0);i<objects.size();++i){
 		objects[i]->print();
 		delete objects[i];

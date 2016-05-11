@@ -20,7 +20,7 @@ Camera::~Camera(){
 
 }
 
-void Camera::print(){
+void Camera::print() const {
 	std::cout << "pos :\n";
 	pos.print();
 	std::cout << "target :\n";

@@ -4,13 +4,12 @@
 
 using namespace std;
 
-/*
+
 void parse(std::string nomFichier, std::string nomImage, std::vector<Object *> &objects){
 	int nbCube=0, nbPyramide = 0, nbPoints = 0;
 	
 	Cube c;
 	PyramideTriangle t;
-	Object *o;
 	
 	ifstream fichier(nomFichier.c_str(),ios::in);
 	if (fichier) {
@@ -40,18 +39,18 @@ void parse(std::string nomFichier, std::string nomImage, std::vector<Object *> &
 		std::cout << "cannot open file" << nomFichier << endl;
 	}
 }
-*/
-/*
-void niveau2(char* nomFichier, char* nomImage){
-	read(nomFichier);
+
+
+void niveau2(std::string nomFichier, std::string nomImage){
+	//read(nomFichier);
 }
-void niveau3(char* nomFichier, char* nomImage){
-	read(nomFichier);
+void niveau3(std::string nomFichier, std::string nomImage){
+	//read(nomFichier);
 }
-*/
+
 
 int main(int argc, char* argv[]){
-    /*
+    
     std::vector<std::string> allArgs(argv, argv + argc);
     if (argc != 7) {
         std::cout << "wrong argument, type : ./exe -n 1 -i fichier -o image.ppm\n";
@@ -83,19 +82,11 @@ int main(int argc, char* argv[]){
 		std::cout << "wrong argument level : 1, 2 or 3\n";
 	}
 	
-	std::list<Object>::iterator lit(objects.begin()), lend(objects.end());
-	for (; lit != lend; ++lit)
-	    lit->print();
-	cout << endl;
 	for(int i(0);i<objects.size();++i){
 		objects[i]->print();
 		delete objects[i];
 		objects[i]=0;
 	}
     
-    cout << "Test camera" << endl;
-    Camera c(Point(10.,10.,10.), 0.25*PI, +0.25*PI, 6.);
-    c.print();
-    cout << "Fin test camera" << endl;*/
 	return 0;
 }

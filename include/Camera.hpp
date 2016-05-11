@@ -18,8 +18,8 @@ public :
 	~Camera();
 	bool operator==(const Camera &p);
     bool operator!=(const Camera &p);
-    Camera operator=(const Camera &p);
-	void print();
+    Camera &operator=(const Camera &p);
+	void print() const;
 	Point getPos() const;
 	Point getTarget() const;
 	double getTheta() const;

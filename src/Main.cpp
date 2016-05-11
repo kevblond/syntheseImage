@@ -4,7 +4,6 @@
 
 using namespace std;
 
-
 void parse(std::string nomFichier, std::string nomImage, std::vector<Object *> &objects){
 	int nbCube=0, nbPyramide = 0, nbPoints = 0;
 	
@@ -42,10 +41,8 @@ void parse(std::string nomFichier, std::string nomImage, std::vector<Object *> &
 
 
 void niveau2(std::string nomFichier, std::string nomImage){
-	//read(nomFichier);
 }
 void niveau3(std::string nomFichier, std::string nomImage){
-	//read(nomFichier);
 }
 
 
@@ -71,7 +68,6 @@ int main(int argc, char* argv[]){
 		parse(nomFichier, nomImage, objects);
 		cout << "Fin niveau 1" << endl;
 		break;
-    
     case 2:
 		niveau2(nomFichier,argv[5]);
 		break;

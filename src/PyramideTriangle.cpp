@@ -66,3 +66,7 @@ Point PyramideTriangle::getP4() const {
 Color PyramideTriangle::getColor() const {
     return color;
 }
+
+bool PyramideTriangle::intersect(const Ray& ray, float& dist) {
+	return true;
+}

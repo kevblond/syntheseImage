@@ -5,10 +5,11 @@
 #ifndef PROJECT_VECTOR_HPP
 #define PROJECT_VECTOR_HPP
 
-#define SQR(a) ((a)*(a))
 
 #include <cmath>
 #include <iostream>
+
+#include "Point.hpp"
 
 class Vector {
     protected:
@@ -18,13 +19,14 @@ class Vector {
     public:
         Vector(void);
         Vector(float x, float y, float z);
+        Vector(const Point &a, const Point &b);
 
         ~Vector();
         bool operator==(const Vector &p);
         bool operator!=(const Vector &p);
         Vector &operator=(const Vector &p);
-	    Vector &operator+(const Vector &p);
-        Vector &operator-(const Vector &p);
+	    Vector operator+(const Vector &p);
+        Vector operator-(const Vector &p);
 	    void print(void) const;
         float getX() const;
         float getY() const;

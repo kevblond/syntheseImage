@@ -28,10 +28,12 @@ void parse(std::string nomFichier, std::string nomImage, std::vector<Object*> &o
 				fichier >> r >> g >> b;
 			    objects.push_back(new PyramideTriangle(points[0], points[1], points[2], points[3],Color(r,g,b)));
 			}
+			/* camera = object ?
 			else if (type.compare("Camera") == 0) {
 				fichier >> x >> y >> z >> u >> v >> w;
 			    objects.push_back(new Camera(Point(x,y,z),u,v,w));
 			}
+			*/
 		}
 		fichier.close();
 	}
@@ -81,6 +83,7 @@ int main(int argc, char* argv[]){
 	default:
 		std::cout << "wrong argument level : 1, 2 or 3\n";
 	}
+	
 	
 	for(int i(0);i<objects.size();++i){
 		objects[i]->print();

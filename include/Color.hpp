@@ -5,16 +5,18 @@
 #include <iostream>
 
 class Color{
-  public:
+protected:
+	float R;
+	float G;
+	float B;  
+public:
 	Color();
 	Color(float R, float G, float B);
 	~Color();
 	float getR() const;
 	float getG() const;
 	float getB() const;
-  private:
-	float R;
-	float G;
-	float B;
+	void print() const;
+  
 };
 #endif

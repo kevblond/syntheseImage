@@ -1,0 +1,23 @@
+In file included from src/../include/Object.hpp:7:0,
+                 from src/Object.cpp:2:
+src/../include/Ray.hpp:22:5: error: ‘Point Ray::origin() const’ conflicts with a previous declaration
+     }
+     ^
+src/../include/Ray.hpp:11:11: note: previous declaration ‘Point Ray::origin’
+     Point origin;
+           ^
+src/../include/Ray.hpp:26:5: error: ‘Vector Ray::direction() const’ conflicts with a previous declaration
+     }
+     ^
+src/../include/Ray.hpp:12:12: note: previous declaration ‘Vector Ray::direction’
+     Vector direction;
+            ^
+src/../include/Ray.hpp: In member function ‘Point Ray::origin() const’:
+src/../include/Ray.hpp:21:14: error: cannot convert ‘Ray::origin’ from type ‘Point (Ray::)() const’ to type ‘Point’
+       return origin;
+              ^
+src/../include/Ray.hpp: In member function ‘Vector Ray::direction() const’:
+src/../include/Ray.hpp:25:14: error: cannot convert ‘Ray::direction’ from type ‘Vector (Ray::)() const’ to type ‘Vector’
+       return direction;
+              ^
+make: *** [Object.o] Error 1

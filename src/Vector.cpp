@@ -18,11 +18,11 @@ Vector::Vector(const Point &a, const Point &b)
 
 Vector::~Vector() { }
 
-Vector &Vector::operator+(const Vector &p) {
+Vector Vector::operator+(const Vector &p) {
     return Vector(this->x + p.x, this->y + p.y, this->z + p.z);
 }
 
-Vector &Vector::operator-(const Vector &p) {
+Vector Vector::operator-(const Vector &p) {
     return Vector(this->x - p.x, this->y - p.y, this->z - p.z);
 }
 
@@ -63,9 +63,5 @@ float Vector::scalarProduct(const Vector &v) {
 
 float Vector::getNorme() {
     return sqrt(scalarProduct(*this));
-}
-
-static Vector &Vector::aToB(const Point &a, const Point &b) {
-    return Vector(b.getX() - a.getX(), b.getY() - a.get(), b.get() - a.get());
 }
 

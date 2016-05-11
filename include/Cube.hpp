@@ -25,6 +25,7 @@ public :
     Cube &operator=(const Cube &p);
 	virtual void print(void) const;
 	virtual Color getColor(void) const;
+    virtual bool intersect(const Ray& ray, float& dist);
     Point getP1() const;
 	Vector getV1() const;
 	Vector getV2() const;

@@ -26,6 +26,7 @@ public :
     Point getP3() const;
 	Point getP4() const;
 	virtual Color getColor() const;
+    virtual bool intersect(const Ray& ray, float& dist);
 };
 
 #endif

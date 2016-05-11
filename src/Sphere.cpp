@@ -7,9 +7,9 @@
 Sphere::Sphere(Point center, float radius,Color color)
         : center(center),
           radius(radius),
-		  color(color){ }
+	color(color) { }
 
-Sphere::Sphere(void) : center(Point(0., 0., 0.)), radius(1.) color(1.f){ }
+Sphere::Sphere(void) : center(Point(0., 0., 0.)), radius(1.), color(1., 1., 1.){ }
 
 Sphere::~Sphere() { }
 
@@ -29,27 +29,28 @@ Sphere &Sphere::operator=(const Sphere &s) {
     return (*this);
 }
 
-bool Sphere::intersect(Ray ray, float& dist) {
+bool Sphere::intersect(const Ray &ray, float& dist) {
   
     Vector dir = ray.getDirection();
     Vector ori(ray.getOrigin() , center);
 
-    float a = dir.produitScalaire(dir);
-    float b = 2 * dir.produitScalaire(ori);
-    float c = ori.produitScalaire(ori) - radius * radius;
+    float a = dir.scalarProduct(dir);
+    float b = 2 * dir.scalarProduct(ori);
+    float c = ori.scalarProduct(ori) - radius * radius;
 	float delta = (b * b - 4 * a * c);
     if(delta < 0.){
       return false;
 	}
     float rDelta = sqrt(delta);
-    if(dist = - (B + rDelta) < 0.){
-      dist = - (B - rDelta);
+    if(dist = - (b + rDelta) < 0.){
+      dist = - (b - rDelta);
 	}
     return true;
   }
-   void Sphere::getColor() const {
-		return color;
-   }
+
+Color Sphere::getColor() const {
+	return color;
+}
 
 void Sphere::print(void) const {
 	std::cout << "Center: ";
@@ -57,5 +58,5 @@ void Sphere::print(void) const {
     std::cout << " r: " << radius;
     std::cout << " color: ";
 	color.print();
-	std::cout << endl;
+	std::cout << std::endl;
 }

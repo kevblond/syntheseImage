@@ -18,12 +18,14 @@ class Sphere : public Object {
     public:
         Sphere(void);
         Sphere(Point center, float radius,Color color);
-
         ~Sphere();
+
         bool operator==(const Sphere &s);
         bool operator!=(const Sphere &s);
         Sphere &operator=(const Sphere &s);
-		virtual void print(void) const;
+	virtual void print(void) const;
+	virtual bool intersect(const Ray &ray, float& dist);
+	virtual Color getColor() const;
 };
 
 

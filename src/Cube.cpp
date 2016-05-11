@@ -67,3 +67,11 @@ Vector Cube::getV2() const {
 Vector Cube::getV3() const {
     return v3;
 }
+
+Color Cube::getColor(void) const {
+	return color;
+}
+
+bool Cube::intersect(const Ray& ray, float& dist) {
+	return true;
+}

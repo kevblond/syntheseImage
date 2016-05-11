@@ -4,7 +4,8 @@
 
 #include <iostream>
 
-using namespace std;
+#include "Ray.hpp"
+#include "Color.hpp"
 
 class Object{
 public:
@@ -13,7 +14,7 @@ public:
     virtual ~Object();
 	virtual void print(void) const = 0;
 	virtual bool intersect(const Ray& ray, float& dist) = 0;
-    virtual void getColor() = 0;
+    virtual Color getColor() const = 0;
 };
 
 #endif //PROJECT_OBJECT_HPP

@@ -12,17 +12,11 @@ class Ray{
     Vector direction;
  
   public:
+	Ray();
     Ray(Point origin,Vector direction);
- 
     ~Ray();
  
-    Point origin() const
-    {
-      return origin;
-    }
-    Vector direction() const
-    {
-      return direction;
-    }
+    Point getOrigin() const;
+    Vector getDirection() const;
 };
 #endif

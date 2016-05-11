@@ -4,7 +4,7 @@
 
 using namespace std;
 
-void parse(std::string nomFichier, std::string nomImage, std::list<Object *> *objects){
+void parse(std::string nomFichier, std::string nomImage, std::vector<Object> &objects){
 	//read(nomFichier);
 	int nbCube=0, nbPyramide = 0, nbPoints = 0;
 	
@@ -21,9 +21,8 @@ void parse(std::string nomFichier, std::string nomImage, std::list<Object *> *ob
 			fichier >> type;
 			if (type.compare("Cube") == 0) {
 				fichier >> x >> y >> z >> width >> lenght >> height;
-				c = Cube(Point(x, y, z), width, lenght, height);
 				nbCube++;
-				objects->push_back(&c);
+				objects.push_back(new Cube(Point(x, y, z), width, lenght, height));
 			}
 			else if (type.compare("PyramideTriangle") == 0) {
 			    Point points[4];
@@ -32,8 +31,7 @@ void parse(std::string nomFichier, std::string nomImage, std::list<Object *> *ob
 		    	    points[i] = Point(x, y, z);
 			    }
 			    nbPyramide++;
-			    t = PyramideTriangle(points[0], points[1], points[2], points[3]);
-			    objects->push_back(&t);
+			    objects.push_back(new PyramideTriangle(points[0], points[1], points[2], points[3]));
 			}
 		}
 		fichier.close();
@@ -67,10 +65,10 @@ int main(int argc, char* argv[]){
     int niveau = atoi(allArgs[2].c_str());
     std::string nomFichier = allArgs[4];
     std::string nomImage = allArgs[6];
-	std::list<Object *> objects;
+	std::vector<Object *> objects;
 	switch(niveau){
 	case 1:
-		parse(nomFichier, nomImage, &objects);
+		parse(nomFichier, nomImage, objects);
 		cout << "Fin niveau 1" << endl;
 		break;
     /*
@@ -91,6 +89,11 @@ int main(int argc, char* argv[]){
 	    lit->print();
 	cout << endl;
 	*/
+	for(int i(0);i<objects.size();++i){
+		objects[i]->print();
+		delete objects[i];
+		objects[i]=0;
+	}
     
     /*cout << "Test camera" << endl;
     Camera c(Point(10.,10.,10.), 0.25*PI, +0.25*PI, 6.);

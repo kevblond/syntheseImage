@@ -32,7 +32,7 @@ Sphere &Sphere::operator=(const Sphere &s) {
 bool Sphere::intersect(Ray ray, float& dist) {
   
     Vector dir = ray.getDirection();
-    Vector ori = constructVector(ray.getOrigin() , center);
+    Vector ori(ray.getOrigin() , center);
 
     float a = dir.produitScalaire(dir);
     float b = 2 * dir.produitScalaire(ori);

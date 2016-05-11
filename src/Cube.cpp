@@ -1,24 +1,27 @@
 #include "../include/Cube.hpp"
 
-Cube::Cube(Point p1,Vector v1,Vector v2,Vector v3){
+Cube::Cube(Point p1,Vector v1,Vector v2,Vector v3,Color color){
 	this->p1 = p1;
 	this->v1 = v1;
 	this->v2 = v2;
 	this->v3 = v3;
+	this->color = color;
 }
 
-Cube::Cube(Point p1,int width,int height, int hight){
+Cube::Cube(Point p1,int width,int height, int hight,Color color){
 	this->p1 = p1;
 	
 	this->v1 = Vector(width,0.,0.);
 	this->v2 = Vector(0.,height,0.);
 	this->v3 = Vector(0.,0.,hight);
+	this->color = color;
 }
 Cube::Cube(void){
 	this->p1 = Point();
 	this->v1 = Vector();
 	this->v2 = Vector();
 	this->v3 = Vector();
+	this->color = Color();
 }
 Cube::~Cube(){
 

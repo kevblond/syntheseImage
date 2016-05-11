@@ -8,15 +8,16 @@
 #include <iostream>
 #include "Object.hpp"
 #include "Point.hpp"
+#include "Color.hpp"
 
 class Sphere : public Object {
     protected:
         Point center;
         float radius;
-    
+		Color color;
     public:
         Sphere(void);
-        Sphere(Point center, float radius);
+        Sphere(Point center, float radius,Color color);
 
         ~Sphere();
         bool operator==(const Sphere &s);

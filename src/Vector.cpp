@@ -11,13 +11,18 @@ Vector::Vector(float x, float y, float z)
 
 Vector::Vector(void) : x(0), y(0), z(0) { }
 
+Vector::Vector(const Point &a, const Point &b)
+        : x(b.getX() - a.getX()),
+          y(b.getY() - a.getY()),
+          z(b.getZ() - a.getZ()) { }
+
 Vector::~Vector() { }
 
-Vector Vector::operator+(const Vector &p) {
+Vector &Vector::operator+(const Vector &p) {
     return Vector(this->x + p.x, this->y + p.y, this->z + p.z);
 }
 
-Vector Vector::operator-(const Vector &p) {
+Vector &Vector::operator-(const Vector &p) {
     return Vector(this->x - p.x, this->y - p.y, this->z - p.z);
 }
 
@@ -29,7 +34,7 @@ bool Vector::operator!=(const Vector &p) {
     return this->x != p.x || this->y != p.y || this->z != p.z;
 }
 
-Vector Vector::operator=(const Vector &p) {
+Vector &Vector::operator=(const Vector &p) {
     this->x = p.x;
     this->y = p.y;
     this->z = p.z;
@@ -58,5 +63,9 @@ float Vector::scalarProduct(const Vector &v) {
 
 float Vector::getNorme() {
     return sqrt(scalarProduct(*this));
+}
+
+static Vector &Vector::aToB(const Point &a, const Point &b) {
+    return Vector(b.getX() - a.getX(), b.getY() - a.get(), b.get() - a.get());
 }
 

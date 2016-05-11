@@ -7,6 +7,7 @@
 class Color{
   public:
 	Color();
+	Color(char color);
 	~Color();
 };
 #endif

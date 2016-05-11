@@ -12,8 +12,9 @@ protected :
 	Point p2;
 	Point p3;
 	Point p4;
+	Color color;
 public :
-	PyramideTriangle(Point p1,Point p2,Point p3,Point p4);
+	PyramideTriangle(Point p1,Point p2,Point p3,Point p4,Color color);
 	PyramideTriangle(void);
 	virtual ~PyramideTriangle();
 	bool operator==(const PyramideTriangle &p);
@@ -24,6 +25,7 @@ public :
     Point getP2() const;
     Point getP3() const;
 	Point getP4() const;
+	virtual Color getColor() const;
 };
 
 #endif

@@ -8,7 +8,7 @@ using namespace std;
 
 class Object{
 public:
-    Object ();
+    Object();
     Object(const Object &o);
     virtual ~Object();
 	virtual void print(void) const = 0;

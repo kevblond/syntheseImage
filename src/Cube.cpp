@@ -1,6 +1,14 @@
 #include "../include/Cube.hpp"
 
 Cube::Cube(Point p1,Vector v1,Vector v2,Vector v3,Color color){
+	if(v1.getNorme() != v2.getNorme || v2.getNorme != v3.getNorme()){
+		std::exit(EXIT_FAILURE);
+	}
+	/*
+	if(!v1.perpendiculaire(v2) || !v2.perpendiculaire(v3)){
+		std::exit(EXIT_FAILURE);
+	}
+	*/
 	this->p1 = p1;
 	this->v1 = v1;
 	this->v2 = v2;
@@ -37,11 +45,7 @@ bool Cube::operator!=(const Cube &c) {
 }
 
 Cube &Cube::operator=(const Cube &c) {
-    this->p1 = c.p1;
-	this->v1 = c.v1;
-	this->v2 = c.v2;
-	this->v3 = c.v3;
-    return (*this);
+	return *Cube(c.p1,c.v1,c.v2,c.v3,c.color);
 }
 
 void Cube::print(void) const {
@@ -73,5 +77,31 @@ Color Cube::getColor(void) const {
 }
 
 bool Cube::intersect(const Ray& ray, float& dist) {
-	return true;
+    double tmin = -99999, tmax = 99999;//-infini et infini
+	/*
+	* implementer minX minY minZ maxX maxY maxZ dans cube ou trouvez un moyen plus facile de le trouver.
+    if (ray.getDirection.getX() != 0.0) {
+        double tx1 = (this.min.x - ray.getOrigin().getX())/ray.getDirection().getX();
+        double tx2 = (this.max.x - ray.getOrigin().getX())/ray.getDirection().getX();
+ 
+        tmin = max(tmin, min(tx1, tx2));
+        tmax = min(tmax, max(tx1, tx2));
+    }
+ 
+    if (ray.getDirection.getY() != 0.0) {
+        double ty1 = (this.min.y - ray.getOrigin().getY())/ray.getDirection().getY();
+        double ty2 = (this.max.y - ray.getOrigin().getY())/ray.getDirection().getY();
+ 
+        tmin = max(tmin, min(ty1, ty2));
+        tmax = min(tmax, max(ty1, ty2));
+    }
+	if (ray.getDirection.getZ() != 0.0) {
+        double tz1 = (this.min.z -  ray.getOrigin().getZ())/ray.getDirection().getZ();
+        double tz2 = (this.max.z -  ray.getOrigin().getZ())/ray.getDirection().getZ();
+ 
+        tmin = max(tmin, min(tz1, tz2));
+        tmax = min(tmax, max(tz1, tz2));
+    }
+	*/
+    return tmax >= tmin;
 }

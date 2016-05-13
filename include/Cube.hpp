@@ -3,6 +3,7 @@
 #define PROJECT_Cube_HPP
 
 #include <iostream>
+#include <cstdlib>
 #include "Object.hpp"
 #include "Point.hpp"
 #include "Vector.hpp"

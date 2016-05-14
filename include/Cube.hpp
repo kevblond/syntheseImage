@@ -31,6 +31,12 @@ public :
 	Vector getV1() const;
 	Vector getV2() const;
 	Vector getV3() const;
+	double Cube::minX() const;
+	double Cube::minY() const;
+	double Cube::minZ() const;
+	double Cube::maxX() const;
+	double Cube::maxY() const;
+	double Cube::maxZ() const;
 };
 
 #endif

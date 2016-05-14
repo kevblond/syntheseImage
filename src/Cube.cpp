@@ -76,32 +76,52 @@ Color Cube::getColor(void) const {
 	return color;
 }
 
+double Cube::minX() const{
+	double minVector = std::min(v1.getX(),std::min(v2.getX(),v3.getX()));
+	return p1.getX() - std::abs(minVector);
+}
+double Cube::minY() const{
+	double minVector = std::min(v1.getY(),std::min(v2.getY(),v3.getY()));
+	return p1.getY() - std::abs(minVector);
+}
+double Cube::minZ() const{
+	double minVector = std::min(v1.getZ(),std::min(v2.getZ(),v3.getZ()));
+	return p1.getZ() - std::abs(minVector);
+}
+double Cube::maxX() const{
+	double maxVector = std::max(v1.getX(),std::max(v2.getX(),v3.getX()));
+	return p1.getX() - std::abs(maxVector);
+}
+double Cube::maxY() const{
+	double maxVector = std::max(v1.getY(),std::max(v2.getY(),v3.getY()));
+	return p1.getY() - std::abs(maxVector);
+}
+double Cube::maxZ() const{
+	double maxVector = std::max(v1.getZ(),std::max(v2.getZ(),v3.getZ()));
+	return p1.getZ() - std::abs(maxVector);
+}
+
 bool Cube::intersect(const Ray& ray, float& dist) {
     double tmin = -99999, tmax = 99999;//-infini et infini
-	/*
-	* implementer minX minY minZ maxX maxY maxZ dans cube ou trouvez un moyen plus facile de le trouver.
     if (ray.getDirection.getX() != 0.0) {
-        double tx1 = (this.min.x - ray.getOrigin().getX())/ray.getDirection().getX();
-        double tx2 = (this.max.x - ray.getOrigin().getX())/ray.getDirection().getX();
- 
-        tmin = max(tmin, min(tx1, tx2));
-        tmax = min(tmax, max(tx1, tx2));
+        double tx1 = (this.minX() - ray.getOrigin().getX())/ray.getDirection().getX();
+        double tx2 = (this.maxX() - ray.getOrigin().getX())/ray.getDirection().getX();
+        tmin = std::max(tmin, std::min(tx1, tx2));
+        tmax = std::min(tmax, std::max(tx1, tx2));
     }
  
     if (ray.getDirection.getY() != 0.0) {
-        double ty1 = (this.min.y - ray.getOrigin().getY())/ray.getDirection().getY();
-        double ty2 = (this.max.y - ray.getOrigin().getY())/ray.getDirection().getY();
- 
-        tmin = max(tmin, min(ty1, ty2));
-        tmax = min(tmax, max(ty1, ty2));
+        double ty1 = (this.minY() - ray.getOrigin().getY())/ray.getDirection().getY();
+        double ty2 = (this.maxY() - ray.getOrigin().getY())/ray.getDirection().getY();
+        tmin = std::max(tmin, qtd::min(ty1, ty2));
+        tmax = std::min(tmax, std::max(ty1, ty2));
     }
 	if (ray.getDirection.getZ() != 0.0) {
-        double tz1 = (this.min.z -  ray.getOrigin().getZ())/ray.getDirection().getZ();
-        double tz2 = (this.max.z -  ray.getOrigin().getZ())/ray.getDirection().getZ();
- 
-        tmin = max(tmin, min(tz1, tz2));
-        tmax = min(tmax, max(tz1, tz2));
+        double tz1 = (this.minZ() -  ray.getOrigin().getZ())/ray.getDirection().getZ();
+        double tz2 = (this.maxZ() -  ray.getOrigin().getZ())/ray.getDirection().getZ();
+        tmin = std::max(tmin, std::min(tz1, tz2));
+        tmax = std::min(tmax, std::max(tz1, tz2));
     }
-	*/
+	
     return tmax >= tmin;
 }

@@ -77,32 +77,50 @@ Color Cube::getColor(void) const {
 }
 
 double Cube::minX() const{
-	double minVector = std::min(v1.getX(),std::min(v2.getX(),v3.getX()));
+	double minVector = std::min(std::min(p1.getX,v1.getX()),std::min(v2.getX(),v3.getX()));
+	if(p1.getX()<v1.getX() && p1.getX()<v2.getX() && p1.getX()<v3.getX()){
+		return p1.getX();
+	}
 	return p1.getX() - std::abs(minVector);
 }
 double Cube::minY() const{
-	double minVector = std::min(v1.getY(),std::min(v2.getY(),v3.getY()));
+	double minVector = std::min(std::min(p1.getY,v1.getY()),std::min(v2.getY(),v3.getY()));
+	if(p1.getY()<v1.getY() && p1.getY()<v2.getY() && p1.getY()<v3.getY()){
+		return p1.getY();
+	}
 	return p1.getY() - std::abs(minVector);
 }
 double Cube::minZ() const{
-	double minVector = std::min(v1.getZ(),std::min(v2.getZ(),v3.getZ()));
+	double minVector = std::min(std::min(p1.getZ,v1.getZ()),std::min(v2.getZ(),v3.getZ()));
+	if(p1.getZ()<v1.getZ() && p1.getZ()<v2.getZ() && p1.getZ()<v3.getZ()){
+		return p1.getZ();
+	}
 	return p1.getZ() - std::abs(minVector);
 }
 double Cube::maxX() const{
-	double maxVector = std::max(v1.getX(),std::max(v2.getX(),v3.getX()));
-	return p1.getX() - std::abs(maxVector);
+	double maxVector = std::max(std::max(p1.getX,v1.getX()),std::max(v2.getX(),v3.getX()));
+	if(p1.getX()>v1.getX() && p1.getX()>v2.getX() && p1.getX()>v3.getX()){
+		return p1.getX();
+	}
+	return p1.getX() + std::abs(maxVector);
 }
 double Cube::maxY() const{
-	double maxVector = std::max(v1.getY(),std::max(v2.getY(),v3.getY()));
-	return p1.getY() - std::abs(maxVector);
+	double maxVector = std::max(std::max(p1.getY,v1.getY()),std::max(v2.getY(),v3.getY()));
+	if(p1.getY()>v1.getY() && p1.getY()>v2.getY() && p1.getY()>v3.getY()){
+		return p1.getY();
+	}
+	return p1.getY() + std::abs(maxVector);
 }
 double Cube::maxZ() const{
-	double maxVector = std::max(v1.getZ(),std::max(v2.getZ(),v3.getZ()));
-	return p1.getZ() - std::abs(maxVector);
+	double maxVector = std::max(std::max(p1.getZ,v1.getZ()),std::max(v2.getZ(),v3.getZ()));
+	if(p1.getZ()>v1.getZ() && p1.getZ()>v2.getZ() && p1.getZ()>v3.getZ()){
+		return p1.getZ();
+	}
+	return p1.getZ() + std::abs(maxVector);
 }
 
 bool Cube::intersect(const Ray& ray, float& dist) {
-    double tmin = -99999, tmax = 99999;//-infini et infini
+    double tmin = std::numeric_limits<double>::min(), tmax = std::numeric_limits<double>::max();//-infini et infini
     if (ray.getDirection.getX() != 0.0) {
         double tx1 = (this.minX() - ray.getOrigin().getX())/ray.getDirection().getX();
         double tx2 = (this.maxX() - ray.getOrigin().getX())/ray.getDirection().getX();
@@ -113,7 +131,7 @@ bool Cube::intersect(const Ray& ray, float& dist) {
     if (ray.getDirection.getY() != 0.0) {
         double ty1 = (this.minY() - ray.getOrigin().getY())/ray.getDirection().getY();
         double ty2 = (this.maxY() - ray.getOrigin().getY())/ray.getDirection().getY();
-        tmin = std::max(tmin, qtd::min(ty1, ty2));
+        tmin = std::max(tmin, std::min(ty1, ty2));
         tmax = std::min(tmax, std::max(ty1, ty2));
     }
 	if (ray.getDirection.getZ() != 0.0) {
@@ -122,6 +140,6 @@ bool Cube::intersect(const Ray& ray, float& dist) {
         tmin = std::max(tmin, std::min(tz1, tz2));
         tmax = std::min(tmax, std::max(tz1, tz2));
     }
-	
+	dist = tmin;
     return tmax >= tmin;
 }

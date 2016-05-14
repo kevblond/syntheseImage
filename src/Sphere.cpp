@@ -32,8 +32,7 @@ Sphere &Sphere::operator=(const Sphere &s) {
 bool Sphere::intersect(const Ray &ray, float& dist) {
   
     Vector dir = ray.getDirection();
-    Vector ori(ray.getOrigin() , center);
-
+    Vector ori(center,ray.getOrigin());
     float a = dir.scalarProduct(dir);
     float b = 2 * dir.scalarProduct(ori);
     float c = ori.scalarProduct(ori) - radius * radius;

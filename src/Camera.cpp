@@ -10,7 +10,7 @@ Camera::Camera(Point pos,Point target,double theta,double phi,double dist){
 
 Camera::Camera(Point pos,double theta,double phi,double dist){
 	this->pos=pos;
-	this->target=Point(0.,0.,0.);
+	this->target=Point(1.,0.,0.);
 	this->theta=theta;
 	this->phi=phi;
 	this->dist=dist;

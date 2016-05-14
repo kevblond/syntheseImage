@@ -84,18 +84,32 @@ int main(int argc, char* argv[]){
 	default:
 		std::cout << "wrong argument level : 1, 2 or 3\n";
 	}
+	Point posCam = c.getPos();
+	float dist(0);
+	float pas(1.57 /640.f);
+	for(int i(0);i<480;++i){
+		float angle_y = -pas * (i - 240);
+		for(int j(0);j<640;++j){
+			float angle_x = -pas * (j - 320);
+			Vector dir(angle_x,angle_y,1);
+			Ray r(posCam,dir);
+			for(int i(0);i<objects.size();++i){
+				//objects[i]->print();
+				if(objects[i].intersect(r,dist){
+					Color c = objects[i].getColor();
+					//met c sur le pixel i j;
+				}
+				delete objects[i];
+				objects[i]=0;
+			}
+		}
+	}
 	
-	
-	for(int i(0);i<objects.size();++i){
+	/*for(int i(0);i<objects.size();++i){
 		objects[i]->print();
 		delete objects[i];
 		objects[i]=0;
-	}
-	
+	}*/
     
-    /*cout << "Test camera" << endl;
-    Camera c(Point(10.,10.,10.), 0.25*PI, +0.25*PI, 6.);
-    c.print();
-    cout << "Fin test camera" << endl;*/
 	return 0;
 }

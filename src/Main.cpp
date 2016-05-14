@@ -4,9 +4,10 @@
 
 using namespace std;
 
-void parse(std::string nomFichier, std::string nomImage, std::vector<Object*> &objects){
+Camera parse(std::string nomFichier, std::string nomImage, std::vector<Object*> &objects){
 	
 	ifstream fichier(nomFichier.c_str(),ios::in);
+	Camera c;
 	if (fichier) {
 		while (fichier.eof() != 1) {
 		    std::string type;
@@ -28,18 +29,17 @@ void parse(std::string nomFichier, std::string nomImage, std::vector<Object*> &o
 				fichier >> r >> g >> b;
 			    objects.push_back(new PyramideTriangle(points[0], points[1], points[2], points[3],Color(r,g,b)));
 			}
-			/* camera = object ?
 			else if (type.compare("Camera") == 0) {
 				fichier >> x >> y >> z >> u >> v >> w;
-			    objects.push_back(new Camera(Point(x,y,z),u,v,w));
+			    c=new Camera(Point(x,y,z),u,v,w);
 			}
-			*/
 		}
 		fichier.close();
 	}
 	else{
 		std::cout << "cannot open file" << nomFichier << endl;
 	}
+	return c;
 }
 /*
 void niveau2(char* nomFichier, char* nomImage){
@@ -67,9 +67,10 @@ int main(int argc, char* argv[]){
     std::string nomFichier = allArgs[4];
     std::string nomImage = allArgs[6];
 	std::vector<Object *> objects;
+	Camera c;
 	switch(niveau){
 	case 1:
-		parse(nomFichier, nomImage, objects);
+		c=parse(nomFichier, nomImage, objects);
 		cout << "Fin niveau 1" << endl;
 		break;
     /*
